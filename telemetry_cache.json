@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-08-27T18:40:47.094509+00:00",
+  "last_telemetry_flush": "2026-08-28T03:56:22.281876+00:00",
   "metrics": {
-    "buffer_usage_percentage": 52.0,
-    "total_packets_buffered": 4479,
-    "active_stream_workers": 7,
-    "avg_latency_ms": 14.1
+    "buffer_usage_percentage": 43.3,
+    "total_packets_buffered": 4877,
+    "active_stream_workers": 4,
+    "avg_latency_ms": 16.4
   },
   "log_queue": [
-    {
-      "timestamp": "2026-08-22T08:19:08.024019+00:00",
-      "level": "INFO",
-      "component": "buffer_manager",
-      "message": "Evicted 12 expired entries from memory heap"
-    },
     {
       "timestamp": "2026-08-22T20:13:37.808500+00:00",
       "level": "INFO",
@@ -68,6 +62,12 @@
       "level": "INFO",
       "component": "stream_client",
       "message": "Established secure stream handshake with endpoint"
+    },
+    {
+      "timestamp": "2026-08-28T03:56:22.281905+00:00",
+      "level": "INFO",
+      "component": "stream_client",
+      "message": "Successfully dispatched queued packets payload"
     }
   ]
 }
