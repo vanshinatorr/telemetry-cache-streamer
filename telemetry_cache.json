@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-08-30T18:57:16.974564+00:00",
+  "last_telemetry_flush": "2026-08-30T22:16:20.924228+00:00",
   "metrics": {
-    "buffer_usage_percentage": 22.9,
-    "total_packets_buffered": 2240,
-    "active_stream_workers": 7,
-    "avg_latency_ms": 28.4
+    "buffer_usage_percentage": 56.8,
+    "total_packets_buffered": 2972,
+    "active_stream_workers": 3,
+    "avg_latency_ms": 17.6
   },
   "log_queue": [
-    {
-      "timestamp": "2026-08-24T12:31:56.176846+00:00",
-      "level": "INFO",
-      "component": "buffer_manager",
-      "message": "Evicted 24 expired entries from memory heap"
-    },
     {
       "timestamp": "2026-08-24T16:26:27.909327+00:00",
       "level": "INFO",
@@ -65,6 +59,12 @@
     },
     {
       "timestamp": "2026-08-30T18:57:16.974590+00:00",
+      "level": "INFO",
+      "component": "stream_client",
+      "message": "Successfully dispatched queued packets payload"
+    },
+    {
+      "timestamp": "2026-08-30T22:16:20.924255+00:00",
       "level": "INFO",
       "component": "stream_client",
       "message": "Successfully dispatched queued packets payload"
