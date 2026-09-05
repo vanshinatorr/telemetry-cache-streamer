@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-09-04T18:43:41.445205+00:00",
+  "last_telemetry_flush": "2026-09-05T02:15:23.342789+00:00",
   "metrics": {
-    "buffer_usage_percentage": 56.2,
-    "total_packets_buffered": 4748,
-    "active_stream_workers": 7,
-    "avg_latency_ms": 26.0
+    "buffer_usage_percentage": 85.2,
+    "total_packets_buffered": 2289,
+    "active_stream_workers": 3,
+    "avg_latency_ms": 26.2
   },
   "log_queue": [
-    {
-      "timestamp": "2026-08-29T00:17:10.823510+00:00",
-      "level": "INFO",
-      "component": "stream_client",
-      "message": "Established secure stream handshake with endpoint"
-    },
     {
       "timestamp": "2026-08-29T15:59:03.061532+00:00",
       "level": "INFO",
@@ -68,6 +62,12 @@
       "level": "DEBUG",
       "component": "telemetry_core",
       "message": "Polled kernel statistics database"
+    },
+    {
+      "timestamp": "2026-09-05T02:15:23.342817+00:00",
+      "level": "INFO",
+      "component": "stream_client",
+      "message": "Established secure stream handshake with endpoint"
     }
   ]
 }
