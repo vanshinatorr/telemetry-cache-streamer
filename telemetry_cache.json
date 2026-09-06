@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-09-06T08:15:04.227209+00:00",
+  "last_telemetry_flush": "2026-09-06T17:54:49.982012+00:00",
   "metrics": {
-    "buffer_usage_percentage": 67.5,
-    "total_packets_buffered": 2606,
-    "active_stream_workers": 2,
-    "avg_latency_ms": 19.3
+    "buffer_usage_percentage": 11.9,
+    "total_packets_buffered": 4553,
+    "active_stream_workers": 3,
+    "avg_latency_ms": 14.4
   },
   "log_queue": [
-    {
-      "timestamp": "2026-08-30T09:36:51.179122+00:00",
-      "level": "WARN",
-      "component": "stream_client",
-      "message": "Ingestion gateway handshake latency: 1221ms"
-    },
     {
       "timestamp": "2026-08-30T18:57:16.974590+00:00",
       "level": "INFO",
@@ -68,6 +62,12 @@
       "level": "INFO",
       "component": "buffer_manager",
       "message": "Buffered metrics packet, size: 255 bytes"
+    },
+    {
+      "timestamp": "2026-09-06T17:54:49.982038+00:00",
+      "level": "WARN",
+      "component": "stream_client",
+      "message": "Ingestion gateway handshake latency: 1409ms"
     }
   ]
 }
