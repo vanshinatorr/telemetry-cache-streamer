@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-09-09T18:57:53.972440+00:00",
+  "last_telemetry_flush": "2026-09-09T22:07:57.533937+00:00",
   "metrics": {
-    "buffer_usage_percentage": 56.3,
-    "total_packets_buffered": 4883,
-    "active_stream_workers": 5,
-    "avg_latency_ms": 6.1
+    "buffer_usage_percentage": 71.3,
+    "total_packets_buffered": 3329,
+    "active_stream_workers": 6,
+    "avg_latency_ms": 28.9
   },
   "log_queue": [
-    {
-      "timestamp": "2026-09-02T19:07:38.785514+00:00",
-      "level": "INFO",
-      "component": "stream_client",
-      "message": "Successfully dispatched queued packets payload"
-    },
     {
       "timestamp": "2026-09-03T08:25:42.519119+00:00",
       "level": "INFO",
@@ -68,6 +62,12 @@
       "level": "DEBUG",
       "component": "telemetry_core",
       "message": "Polled kernel statistics database"
+    },
+    {
+      "timestamp": "2026-09-09T22:07:57.533964+00:00",
+      "level": "INFO",
+      "component": "buffer_manager",
+      "message": "Evicted 49 expired entries from memory heap"
     }
   ]
 }
