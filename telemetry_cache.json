@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-09-15T19:33:00.660119+00:00",
+  "last_telemetry_flush": "2026-09-16T02:38:10.276495+00:00",
   "metrics": {
-    "buffer_usage_percentage": 13.1,
-    "total_packets_buffered": 2165,
-    "active_stream_workers": 7,
-    "avg_latency_ms": 28.4
+    "buffer_usage_percentage": 6.9,
+    "total_packets_buffered": 3148,
+    "active_stream_workers": 8,
+    "avg_latency_ms": 23.8
   },
   "log_queue": [
-    {
-      "timestamp": "2026-09-08T15:44:41.750308+00:00",
-      "level": "INFO",
-      "component": "stream_client",
-      "message": "Established secure stream handshake with endpoint"
-    },
     {
       "timestamp": "2026-09-09T18:57:53.972468+00:00",
       "level": "DEBUG",
@@ -68,6 +62,12 @@
       "level": "INFO",
       "component": "buffer_manager",
       "message": "Buffered metrics packet, size: 437 bytes"
+    },
+    {
+      "timestamp": "2026-09-16T02:38:10.276533+00:00",
+      "level": "INFO",
+      "component": "buffer_manager",
+      "message": "Buffered metrics packet, size: 107 bytes"
     }
   ]
 }
