@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-09-18T22:07:18.443492+00:00",
+  "last_telemetry_flush": "2026-09-19T18:19:06.951576+00:00",
   "metrics": {
-    "buffer_usage_percentage": 25.3,
-    "total_packets_buffered": 3518,
-    "active_stream_workers": 8,
-    "avg_latency_ms": 27.0
+    "buffer_usage_percentage": 57.2,
+    "total_packets_buffered": 3261,
+    "active_stream_workers": 7,
+    "avg_latency_ms": 11.3
   },
   "log_queue": [
-    {
-      "timestamp": "2026-09-15T19:33:00.660146+00:00",
-      "level": "INFO",
-      "component": "buffer_manager",
-      "message": "Buffered metrics packet, size: 437 bytes"
-    },
     {
       "timestamp": "2026-09-16T02:38:10.276533+00:00",
       "level": "INFO",
@@ -68,6 +62,12 @@
       "level": "INFO",
       "component": "stream_client",
       "message": "Established secure stream handshake with endpoint"
+    },
+    {
+      "timestamp": "2026-09-19T18:19:06.951598+00:00",
+      "level": "DEBUG",
+      "component": "telemetry_core",
+      "message": "Polled kernel statistics database"
     }
   ]
 }
