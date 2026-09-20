@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-09-19T18:19:06.951576+00:00",
+  "last_telemetry_flush": "2026-09-20T18:24:09.849394+00:00",
   "metrics": {
-    "buffer_usage_percentage": 57.2,
-    "total_packets_buffered": 3261,
-    "active_stream_workers": 7,
-    "avg_latency_ms": 11.3
+    "buffer_usage_percentage": 58.8,
+    "total_packets_buffered": 2145,
+    "active_stream_workers": 6,
+    "avg_latency_ms": 16.5
   },
   "log_queue": [
-    {
-      "timestamp": "2026-09-16T02:38:10.276533+00:00",
-      "level": "INFO",
-      "component": "buffer_manager",
-      "message": "Buffered metrics packet, size: 107 bytes"
-    },
     {
       "timestamp": "2026-09-16T08:57:39.385347+00:00",
       "level": "INFO",
@@ -65,6 +59,12 @@
     },
     {
       "timestamp": "2026-09-19T18:19:06.951598+00:00",
+      "level": "DEBUG",
+      "component": "telemetry_core",
+      "message": "Polled kernel statistics database"
+    },
+    {
+      "timestamp": "2026-09-20T18:24:09.849420+00:00",
       "level": "DEBUG",
       "component": "telemetry_core",
       "message": "Polled kernel statistics database"
