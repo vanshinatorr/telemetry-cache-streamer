@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-10-10T16:41:29.319586+00:00",
+  "last_telemetry_flush": "2026-10-11T10:28:06.783345+00:00",
   "metrics": {
-    "buffer_usage_percentage": 59.1,
-    "total_packets_buffered": 684,
-    "active_stream_workers": 5,
-    "avg_latency_ms": 27.2
+    "buffer_usage_percentage": 31.3,
+    "total_packets_buffered": 2018,
+    "active_stream_workers": 4,
+    "avg_latency_ms": 19.5
   },
   "log_queue": [
-    {
-      "timestamp": "2026-10-04T03:36:35.328609+00:00",
-      "level": "INFO",
-      "component": "buffer_manager",
-      "message": "Evicted 29 expired entries from memory heap"
-    },
     {
       "timestamp": "2026-10-05T03:19:06.638193+00:00",
       "level": "DEBUG",
@@ -65,6 +59,12 @@
     },
     {
       "timestamp": "2026-10-10T16:41:29.319611+00:00",
+      "level": "DEBUG",
+      "component": "telemetry_core",
+      "message": "Polled kernel statistics database"
+    },
+    {
+      "timestamp": "2026-10-11T10:28:06.783372+00:00",
       "level": "DEBUG",
       "component": "telemetry_core",
       "message": "Polled kernel statistics database"
