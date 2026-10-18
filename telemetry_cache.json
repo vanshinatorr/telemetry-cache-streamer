@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-10-18T02:22:50.355335+00:00",
+  "last_telemetry_flush": "2026-10-18T08:26:40.924437+00:00",
   "metrics": {
-    "buffer_usage_percentage": 80.9,
-    "total_packets_buffered": 3911,
-    "active_stream_workers": 8,
-    "avg_latency_ms": 13.4
+    "buffer_usage_percentage": 8.2,
+    "total_packets_buffered": 2559,
+    "active_stream_workers": 6,
+    "avg_latency_ms": 24.7
   },
   "log_queue": [
-    {
-      "timestamp": "2026-10-10T16:41:29.319611+00:00",
-      "level": "DEBUG",
-      "component": "telemetry_core",
-      "message": "Polled kernel statistics database"
-    },
     {
       "timestamp": "2026-10-11T10:28:06.783372+00:00",
       "level": "DEBUG",
@@ -68,6 +62,12 @@
       "level": "INFO",
       "component": "stream_client",
       "message": "Established secure stream handshake with endpoint"
+    },
+    {
+      "timestamp": "2026-10-18T08:26:40.924460+00:00",
+      "level": "WARN",
+      "component": "stream_client",
+      "message": "Ingestion gateway handshake latency: 787ms"
     }
   ]
 }
