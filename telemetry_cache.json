@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-10-20T02:49:24.086674+00:00",
+  "last_telemetry_flush": "2026-10-20T16:06:22.420213+00:00",
   "metrics": {
-    "buffer_usage_percentage": 79.7,
-    "total_packets_buffered": 1863,
-    "active_stream_workers": 8,
-    "avg_latency_ms": 31.7
+    "buffer_usage_percentage": 40.1,
+    "total_packets_buffered": 3774,
+    "active_stream_workers": 6,
+    "avg_latency_ms": 5.3
   },
   "log_queue": [
-    {
-      "timestamp": "2026-10-13T20:55:08.344256+00:00",
-      "level": "INFO",
-      "component": "buffer_manager",
-      "message": "Buffered metrics packet, size: 351 bytes"
-    },
     {
       "timestamp": "2026-10-14T16:14:44.027316+00:00",
       "level": "INFO",
@@ -65,6 +59,12 @@
     },
     {
       "timestamp": "2026-10-20T02:49:24.086705+00:00",
+      "level": "INFO",
+      "component": "stream_client",
+      "message": "Successfully dispatched queued packets payload"
+    },
+    {
+      "timestamp": "2026-10-20T16:06:22.420243+00:00",
       "level": "INFO",
       "component": "stream_client",
       "message": "Successfully dispatched queued packets payload"
