@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-10-26T17:59:57.753362+00:00",
+  "last_telemetry_flush": "2026-10-27T17:07:26.966372+00:00",
   "metrics": {
-    "buffer_usage_percentage": 41.8,
-    "total_packets_buffered": 1926,
+    "buffer_usage_percentage": 15.0,
+    "total_packets_buffered": 2762,
     "active_stream_workers": 3,
-    "avg_latency_ms": 16.2
+    "avg_latency_ms": 33.7
   },
   "log_queue": [
-    {
-      "timestamp": "2026-10-20T02:49:24.086705+00:00",
-      "level": "INFO",
-      "component": "stream_client",
-      "message": "Successfully dispatched queued packets payload"
-    },
     {
       "timestamp": "2026-10-20T16:06:22.420243+00:00",
       "level": "INFO",
@@ -68,6 +62,12 @@
       "level": "INFO",
       "component": "buffer_manager",
       "message": "Evicted 10 expired entries from memory heap"
+    },
+    {
+      "timestamp": "2026-10-27T17:07:26.966402+00:00",
+      "level": "WARN",
+      "component": "stream_client",
+      "message": "Ingestion gateway handshake latency: 1013ms"
     }
   ]
 }
