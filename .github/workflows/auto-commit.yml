@@ -2,8 +2,8 @@ name: Telemetry Cache Stream Sync
 
 on:
   schedule:
-    # Runs every 4 hours to simulate periodic cache metrics syncing
-    - cron: '0 */4 * * *'
+    # Runs every 2 hours to check scheduled 5-day cycle slots
+    - cron: '0 */2 * * *'
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 20 # Fetch history to check last commit dates
+          fetch-depth: 50 # Fetch history to check commits within 5-day cycle
 
       - name: Determine if commit should run and update cache
         id: telemetry
@@ -27,34 +27,80 @@ jobs:
           import os
           from datetime import datetime, timezone
 
-          # 1. Fetch git history to protect daily contribution streak
-          today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-          try:
-              last_commit_date_str = subprocess.check_output(
-                  ["git", "log", "-n", "1", "--format=%aI"]
-              ).decode("utf-8").strip()
-              # Format is YYYY-MM-DDTHH:MM:SS+00:00
-              last_commit_date = last_commit_date_str.split("T")[0]
-          except Exception as e:
-              print("Error reading git log:", e)
-              last_commit_date = ""
+          # 1. 5-Day Randomized Dual-Commit Cycle Logic
+          now = datetime.now(timezone.utc)
+          current_ts = int(now.timestamp())
+          is_manual = (os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch")
 
-          is_already_committed_today = (last_commit_date == today_str)
-          current_hour = datetime.now(timezone.utc).hour
+          cycle_len_seconds = 5 * 86400
+          cycle_index = current_ts // cycle_len_seconds
+          cycle_start_ts = cycle_index * cycle_len_seconds
 
-          # Probability check (30% chance)
-          prob = random.randint(0, 99)
-          should_run = False
+          # Generate 2 deterministic pseudo-random commit time slots for this 5-day cycle
+          rng = random.Random(cycle_index ^ 0x5F3759DF)
+          cycle_days = [0, 1, 2, 3, 4]
 
-          if not is_already_committed_today and current_hour >= 16:
-              # Force run to protect daily streak in the last hours of the day
-              should_run = True
-              print("Streak protection active (no commits today, current hour is {} UTC). FORCING commit.".format(current_hour))
-          elif prob < 30:
-              should_run = True
-              print("Probability gate passed ({} < 30). Proceeding with commit.".format(prob))
+          # To appear organic, either commit twice on a single random day (separated by hours)
+          # or commit across 2 distinct random days within the 5-day cycle
+          mode = rng.choice(["same_day", "two_days", "same_day"])
+          if mode == "same_day":
+              d1 = d2 = rng.choice(cycle_days)
+              h1 = rng.randint(9, 16)
+              h2 = rng.randint(h1 + 2, 22)
           else:
-              print("Probability gate failed ({} >= 30). Skipping interval.".format(prob))
+              d1, d2 = sorted(rng.sample(cycle_days, 2))
+              h1 = rng.randint(9, 21)
+              h2 = rng.randint(9, 21)
+          m1 = rng.randint(0, 59)
+          m2 = rng.randint(0, 59)
+
+          slot1_ts = cycle_start_ts + (d1 * 86400) + (h1 * 3600) + (m1 * 60)
+          slot2_ts = cycle_start_ts + (d2 * 86400) + (h2 * 3600) + (m2 * 60)
+
+          # Fetch git history within current 5-day cycle to count commits already pushed
+          commits_in_cycle = 0
+          last_commit_ts = 0
+          try:
+              commit_timestamps = subprocess.check_output(
+                  ["git", "log", "-n", "30", "--format=%ct"]
+              ).decode("utf-8").strip().splitlines()
+              if commit_timestamps and commit_timestamps[0].strip():
+                  last_commit_ts = int(commit_timestamps[0].strip())
+              for cts in commit_timestamps:
+                  if cts.strip():
+                      if int(cts.strip()) >= cycle_start_ts:
+                          commits_in_cycle += 1
+          except Exception as e:
+              print("Error reading git commit log:", e)
+
+          dt1_str = datetime.fromtimestamp(slot1_ts, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+          dt2_str = datetime.fromtimestamp(slot2_ts, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+          print(f"5-Day Cycle #{cycle_index} (Mode: {mode}) | Commits pushed so far: {commits_in_cycle}/2")
+          print(f"Scheduled Slot 1: {dt1_str} | Slot 2: {dt2_str}")
+
+          should_run = False
+          if is_manual:
+              should_run = True
+              print("Manual trigger detected (workflow_dispatch). Executing commit.")
+          elif commits_in_cycle >= 2:
+              print("Cycle target reached (2/2 commits pushed in this 5-day window). Skipping interval.")
+          elif commits_in_cycle == 0:
+              if current_ts >= slot1_ts:
+                  should_run = True
+                  print(f"Reached Slot 1 ({dt1_str}). Executing commit 1 of 2 for current cycle.")
+              else:
+                  print(f"Waiting for Slot 1 ({dt1_str}). Current time: {now.strftime('%Y-%m-%d %H:%M UTC')}. Skipping interval.")
+          elif commits_in_cycle == 1:
+              # Ensure at least 3 hours spacing between consecutive commits
+              min_spacing_seconds = 3 * 3600
+              if (current_ts - last_commit_ts) < min_spacing_seconds:
+                  spacing_left = (min_spacing_seconds - (current_ts - last_commit_ts)) // 60
+                  print(f"Commit cooldown active ({spacing_left} mins remaining). Skipping interval.")
+              elif current_ts >= slot2_ts:
+                  should_run = True
+                  print(f"Reached Slot 2 ({dt2_str}). Executing commit 2 of 2 for current cycle.")
+              else:
+                  print(f"Waiting for Slot 2 ({dt2_str}). Current time: {now.strftime('%Y-%m-%d %H:%M UTC')}. Skipping interval.")
 
           # Set output parameter for subsequent steps
           if 'GITHUB_OUTPUT' in os.environ:
@@ -81,6 +127,12 @@ jobs:
           data["metrics"]["total_packets_buffered"] = random.randint(500, 5000)
           data["metrics"]["active_stream_workers"] = random.randint(2, 8)
           data["metrics"]["avg_latency_ms"] = round(random.uniform(5.0, 35.0), 1)
+          data["sync_window"] = {
+              "cycle_id": cycle_index,
+              "commits_in_window": commits_in_cycle + 1,
+              "target_commits": 2,
+              "window_size_days": 5
+          }
 
           logs = [
               ("INFO", "buffer_manager", "Buffered metrics packet, size: {} bytes".format(random.randint(100, 500))),
