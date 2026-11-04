@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-11-04T17:50:04.436429+00:00",
+  "last_telemetry_flush": "2026-11-04T23:21:56.648808+00:00",
   "metrics": {
-    "buffer_usage_percentage": 73.4,
-    "total_packets_buffered": 1726,
+    "buffer_usage_percentage": 15.3,
+    "total_packets_buffered": 1968,
     "active_stream_workers": 7,
-    "avg_latency_ms": 29.5
+    "avg_latency_ms": 23.4
   },
   "log_queue": [
-    {
-      "timestamp": "2026-10-28T17:42:52.704454+00:00",
-      "level": "INFO",
-      "component": "buffer_manager",
-      "message": "Evicted 30 expired entries from memory heap"
-    },
     {
       "timestamp": "2026-10-28T23:45:00.254641+00:00",
       "level": "INFO",
@@ -68,11 +62,17 @@
       "level": "INFO",
       "component": "buffer_manager",
       "message": "Buffered metrics packet, size: 393 bytes"
+    },
+    {
+      "timestamp": "2026-11-04T23:21:56.648844+00:00",
+      "level": "INFO",
+      "component": "buffer_manager",
+      "message": "Buffered metrics packet, size: 146 bytes"
     }
   ],
   "sync_window": {
     "cycle_id": 4152,
-    "commits_in_window": 1,
+    "commits_in_window": 2,
     "target_commits": 2,
     "window_size_days": 5
   }
