@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-11-04T23:21:56.648808+00:00",
+  "last_telemetry_flush": "2026-11-12T21:21:15.944033+00:00",
   "metrics": {
-    "buffer_usage_percentage": 15.3,
-    "total_packets_buffered": 1968,
-    "active_stream_workers": 7,
-    "avg_latency_ms": 23.4
+    "buffer_usage_percentage": 38.9,
+    "total_packets_buffered": 1368,
+    "active_stream_workers": 5,
+    "avg_latency_ms": 12.4
   },
   "log_queue": [
-    {
-      "timestamp": "2026-10-28T23:45:00.254641+00:00",
-      "level": "INFO",
-      "component": "stream_client",
-      "message": "Established secure stream handshake with endpoint"
-    },
     {
       "timestamp": "2026-10-29T03:43:40.506004+00:00",
       "level": "DEBUG",
@@ -68,11 +62,17 @@
       "level": "INFO",
       "component": "buffer_manager",
       "message": "Buffered metrics packet, size: 146 bytes"
+    },
+    {
+      "timestamp": "2026-11-12T21:21:15.944063+00:00",
+      "level": "INFO",
+      "component": "buffer_manager",
+      "message": "Buffered metrics packet, size: 349 bytes"
     }
   ],
   "sync_window": {
-    "cycle_id": 4152,
-    "commits_in_window": 2,
+    "cycle_id": 4153,
+    "commits_in_window": 1,
     "target_commits": 2,
     "window_size_days": 5
   }
