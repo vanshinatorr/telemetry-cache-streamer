@@ -1,20 +1,14 @@
 {
   "status": "active",
   "engine_version": "1.4.2",
-  "last_telemetry_flush": "2026-11-14T16:25:31.283014+00:00",
+  "last_telemetry_flush": "2026-11-17T10:20:55.105129+00:00",
   "metrics": {
-    "buffer_usage_percentage": 29.5,
-    "total_packets_buffered": 2341,
-    "active_stream_workers": 8,
-    "avg_latency_ms": 6.2
+    "buffer_usage_percentage": 81.9,
+    "total_packets_buffered": 2933,
+    "active_stream_workers": 2,
+    "avg_latency_ms": 25.9
   },
   "log_queue": [
-    {
-      "timestamp": "2026-10-30T10:38:30.768497+00:00",
-      "level": "INFO",
-      "component": "stream_client",
-      "message": "Successfully dispatched queued packets payload"
-    },
     {
       "timestamp": "2026-10-31T10:03:56.187168+00:00",
       "level": "INFO",
@@ -68,11 +62,17 @@
       "level": "INFO",
       "component": "stream_client",
       "message": "Established secure stream handshake with endpoint"
+    },
+    {
+      "timestamp": "2026-11-17T10:20:55.105155+00:00",
+      "level": "WARN",
+      "component": "stream_client",
+      "message": "Ingestion gateway handshake latency: 276ms"
     }
   ],
   "sync_window": {
     "cycle_id": 4154,
-    "commits_in_window": 1,
+    "commits_in_window": 2,
     "target_commits": 2,
     "window_size_days": 5
   }
